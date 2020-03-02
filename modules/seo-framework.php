@@ -16,3 +16,10 @@ add_filter( 'the_seo_framework_metabox_priority', __NAMESPACE__ . '\\seo_metabox
  * Remove SEO framework comment in head
  */
 add_filter( 'the_seo_framework_indicator', '__return_false' );
+
+/**
+ * Move Yoast metabox to a lower position
+ */
+add_filter( 'wpseo_metabox_prio', function () {
+	return 'low';
+} );
