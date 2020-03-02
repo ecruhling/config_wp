@@ -51,7 +51,7 @@ class Resource_Config_WP_Dashboard_Widget {
 	public static function widget() {
 		?>
         <p><?php
-			printf( __( 'The backend of <strong>%1$s</strong> has been simplified and optimized by %2$s.', 'resource' ),
+			printf( __( '<strong>%1$s</strong> has been simplified and optimized by %2$s.', 'resource' ),
 				esc_attr( get_bloginfo( 'name' ) ),
 				__( 'the <strong>Resource Config_WP</strong> plugin', 'resource' )
 			);
@@ -66,6 +66,11 @@ class Resource_Config_WP_Dashboard_Widget {
             <li><?php esc_html_e( 'PHP version: ', 'resource' );
 				echo '<strong>' . PHP_VERSION . '</strong>'; ?></li>
         </ul>
+        <style>
+            #resource-config_wp-dashboard-widget.postbox {
+                background-color: rgba(62, 94, 111, 0.11);
+            }
+        </style>
 		<?php
 	}
 
