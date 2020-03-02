@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Customizer Remove All Parts",
+    "host": "wordpress",
+    "slug": "customizer-remove-all-parts/wp-crap.php",
+    "uri": "https://wordpress.org/plugins/customizer-remove-all-parts/",
+    "branch": "trunk"
+  },
+  {
+    "name": "Move Site Icon To Settings",
+    "host": "wordpress",
+    "slug": "move-site-icon-to-settings/msits-site-icon.php",
+    "uri": "https://wordpress.org/plugins/move-site-icon-to-settings/",
+    "branch": "trunk"
+  }
+]

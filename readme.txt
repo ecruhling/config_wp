@@ -1,0 +1,1 @@
+=== Resource Config_WP ===
