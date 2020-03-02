@@ -35,6 +35,9 @@
 * **Remove Menu Items**<br>
   `add_theme_support('resource-remove-widgets');`
 
+* **Clean Dashboard and add Site Information**<br>
+  `add_theme_support('resource-clean-dashboard');`
+
 And in a format you can copy & paste into your theme:
 ```php
 /**
@@ -51,4 +54,5 @@ add_theme_support('resource-disable-comments');
 add_theme_support('resource-remove-posts');
 add_theme_support('resource-remove-menu-items');
 add_theme_support('resource-remove-widgets');
+add_theme_support('resource-clean-dashboard');
 ```
