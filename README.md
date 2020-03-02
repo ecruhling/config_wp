@@ -47,6 +47,9 @@
 * **Gravity Forms (force JS to footer, hide spinner)**<br>
   `add_theme_support('resource-gravity-forms');`
 
+* **SVG Support**<br>
+  `add_theme_support('resource-svg');`
+
 And in a format you can copy & paste into your theme:
 ```php
 /**
@@ -67,4 +70,5 @@ add_theme_support('resource-clean-dashboard');
 add_theme_support('resource-clean-customizer');
 add_theme_support('resource-posts-to-news');
 add_theme_support('resource-gravity-forms');
+add_theme_support('resource-svg');
 ```
