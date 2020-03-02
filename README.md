@@ -26,6 +26,12 @@
 * **Disable comments; remove Comments menu**<br>
   `add_theme_support('resource-disable-comments');`
 
+* **Hide Posts menu item; also Categories & Tags**<br>
+  `add_theme_support('resource-remove-posts');`
+
+* **Remove Menu Items**<br>
+  `add_theme_support('resource-remove-menu-items');`
+
 And in a format you can copy & paste into your theme:
 ```php
 /**
@@ -39,4 +45,6 @@ add_theme_support('resource-change-author');
 add_theme_support('resource-change-menu-order');
 add_theme_support('resource-simplify-images');
 add_theme_support('resource-disable-comments');
+add_theme_support('resource-remove-posts');
+add_theme_support('resource-remove-menu-items');
 ```
