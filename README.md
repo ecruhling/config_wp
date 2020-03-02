@@ -41,6 +41,9 @@
 * **Clean Customizer**<br>
   `add_theme_support('resource-clean-customizer');`
 
+* **Change 'Posts' to 'News' (only if enabled)**<br>
+  `add_theme_support('resource-posts-to-news');`
+
 And in a format you can copy & paste into your theme:
 ```php
 /**
@@ -59,4 +62,5 @@ add_theme_support('resource-remove-menu-items');
 add_theme_support('resource-remove-widgets');
 add_theme_support('resource-clean-dashboard');
 add_theme_support('resource-clean-customizer');
+add_theme_support('resource-posts-to-news');
 ```
