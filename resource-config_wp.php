@@ -15,7 +15,7 @@ use Parsedown;
 use stdClass;
 
 // autoload vendor files (Parsedown.php)
-require_once( plugin_dir_path( __FILE__ ) . "vendor/autoload.php" );
+require_once( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' );
 
 class Options {
 	protected static $modules = [];
@@ -82,9 +82,9 @@ class BFIGitHubPluginUpdater {
 	private $accessToken; // GitHub private repo token
 
 	function __construct( $pluginFile, $gitHubUsername, $gitHubProjectName, $accessToken = '' ) {
-		add_filter( "pre_set_site_transient_update_plugins", array( $this, "setTransitent" ) );
-		add_filter( "plugins_api", array( $this, "setPluginInfo" ), 10, 3 );
-		add_filter( "upgrader_post_install", array( $this, "postInstall" ), 10, 3 );
+		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'setTransitent' ) );
+		add_filter( 'plugins_api', array( $this, 'setPluginInfo' ), 10, 3 );
+		add_filter( 'upgrader_post_install', array( $this, 'postInstall' ), 10, 3 );
 
 		$this->pluginFile  = $pluginFile;
 		$this->username    = $gitHubUsername;
@@ -106,11 +106,11 @@ class BFIGitHubPluginUpdater {
 		}
 
 		// Query the GitHub API
-		$url = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases";
+		$url = 'https://api.github.com/repos/{$this->username}/{$this->repo}/releases';
 
 		// We need the access token for private repos
 		if ( ! empty( $this->accessToken ) ) {
-			$url = add_query_arg( array( "access_token" => $this->accessToken ), $url );
+			$url = add_query_arg( array( 'access_token' => $this->accessToken ), $url );
 		}
 
 		// Get the results
@@ -146,13 +146,13 @@ class BFIGitHubPluginUpdater {
 
 			// Include the access token for private GitHub repos
 			if ( ! empty( $this->accessToken ) ) {
-				$package = add_query_arg( array( "access_token" => $this->accessToken ), $package );
+				$package = add_query_arg( array( 'access_token' => $this->accessToken ), $package );
 			}
 
 			$obj                                = new stdClass();
 			$obj->slug                          = $this->slug;
 			$obj->new_version                   = $this->githubAPIResult->tag_name;
-			$obj->url                           = $this->pluginData["PluginURI"];
+			$obj->url                           = $this->pluginData['PluginURI'];
 			$obj->package                       = $package;
 			$transient->response[ $this->slug ] = $obj;
 		}
@@ -175,10 +175,10 @@ class BFIGitHubPluginUpdater {
 		// Add our plugin information
 		$response->last_updated = $this->githubAPIResult->published_at;
 		$response->slug         = $this->slug;
-		$response->plugin_name  = $this->pluginData["Name"];
+		$response->plugin_name  = $this->pluginData['Name'];
 		$response->version      = $this->githubAPIResult->tag_name;
-		$response->author       = $this->pluginData["AuthorName"];
-		$response->homepage     = $this->pluginData["PluginURI"];
+		$response->author       = $this->pluginData['AuthorName'];
+		$response->homepage     = $this->pluginData['PluginURI'];
 
 		// This is our release download zip file
 		$downloadLink = $this->githubAPIResult->zipball_url;
@@ -186,7 +186,7 @@ class BFIGitHubPluginUpdater {
 		// Include the access token for private GitHub repos
 		if ( ! empty( $this->accessToken ) ) {
 			$downloadLink = add_query_arg(
-				array( "access_token" => $this->accessToken ),
+				array( 'access_token' => $this->accessToken ),
 				$downloadLink
 			);
 		}
@@ -194,15 +194,15 @@ class BFIGitHubPluginUpdater {
 
 		// Create tabs in the lightbox
 		$response->sections = array(
-			'description' => $this->pluginData["Description"],
-			'changelog'   => class_exists( "Parsedown" )
+			'description' => $this->pluginData['Description'],
+			'changelog'   => class_exists( 'Parsedown' )
 				? Parsedown::instance()->parse( $this->githubAPIResult->body )
 				: $this->githubAPIResult->body
 		);
 
 		// Gets the required version of WP if available
 		$matches = null;
-		preg_match( "/requires:\s([\d\.]+)/i", $this->githubAPIResult->body, $matches );
+		preg_match( '/requires:\s([\d\.]+)/i', $this->githubAPIResult->body, $matches );
 		if ( ! empty( $matches ) ) {
 			if ( is_array( $matches ) ) {
 				if ( count( $matches ) > 1 ) {
@@ -211,9 +211,9 @@ class BFIGitHubPluginUpdater {
 			}
 		}
 
-// Gets the tested version of WP if available
+		// Gets the tested version of WP if available
 		$matches = null;
-		preg_match( "/tested:\s([\d\.]+)/i", $this->githubAPIResult->body, $matches );
+		preg_match( '/tested:\s([\d\.]+)/i', $this->githubAPIResult->body, $matches );
 		if ( ! empty( $matches ) ) {
 			if ( is_array( $matches ) ) {
 				if ( count( $matches ) > 1 ) {
@@ -251,5 +251,5 @@ class BFIGitHubPluginUpdater {
 }
 
 if ( is_admin() ) {
-	new BFIGitHubPluginUpdater( __FILE__, 'ecruhling', "config_wp" );
+	new BFIGitHubPluginUpdater( __FILE__, 'ecruhling', 'config_wp' );
 }
