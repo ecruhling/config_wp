@@ -1,5 +1,5 @@
 {
-    "name": "ecruhling/resource-config_wp",
+    "name": "ecruhling/config_wp",
     "description": "A plugin containing modules for configuring WordPress",
     "type": "wordpress-plugin",
     "require": {

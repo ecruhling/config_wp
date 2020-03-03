@@ -1,6 +1,8 @@
 # Resource Config_WP
 
-A modular WordPress plugin that includes highly-opinionated changes to the back- and front-end. All modules are enabled or disabled using the WordPress built-in add_theme_support function.
+A modular WordPress plugin that includes highly-opinionated changes to the back- and front-end.
+All modules are enabled or disabled using the WordPress built-in add_theme_support function.
+Inspired by and uses the module loading function from [Roots/Soil](https://github.com/roots/soil).
 
 ## Installation
 
