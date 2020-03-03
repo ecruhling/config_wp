@@ -1,5 +1,16 @@
 # Resource Config_WP
 
+A modular WordPress plugin that includes highly-opinionated changes to the back- and front-end. All modules are enabled or disabled using the WordPress built-in add_theme_support function.
+
+## Installation
+
+### via WordPress Admin Panel
+
+1. Download the [latest zip](https://github.com/ecruhling/config_wp/releases/latest) of this repo.
+2. In your WordPress admin panel, navigate to Plugins->Add New
+3. Click Upload Plugin
+4. Upload the zip file that you downloaded.
+
 ## Modules
 
 * **Change 'Howdy' to 'Greetings'**<br>

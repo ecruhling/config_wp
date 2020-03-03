@@ -140,7 +140,7 @@ class BFIGitHubPluginUpdater {
 		// Check the versions if we need to do an update
 		$doUpdate = version_compare( $this->githubAPIResult->tag_name, $transient->checked[ $this->slug ] );
 
-// Update the transient to include our updated plugin data
+		// Update the transient to include our updated plugin data
 		if ( $doUpdate == 1 ) {
 			$package = $this->githubAPIResult->zipball_url;
 
@@ -200,7 +200,7 @@ class BFIGitHubPluginUpdater {
 				: $this->githubAPIResult->body
 		);
 
-// Gets the required version of WP if available
+		// Gets the required version of WP if available
 		$matches = null;
 		preg_match( "/requires:\s([\d\.]+)/i", $this->githubAPIResult->body, $matches );
 		if ( ! empty( $matches ) ) {
