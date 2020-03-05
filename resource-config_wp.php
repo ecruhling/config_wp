@@ -14,7 +14,6 @@ namespace Resource\Config_WP;
 use Parsedown;
 use stdClass;
 
-// autoload vendor files (Parsedown.php)
 require_once( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' );
 
 class Options {
@@ -161,7 +160,7 @@ class BFIGitHubPluginUpdater {
 	}
 
 	// Push in plugin version information to display in the details lightbox
-	public function setPluginInfo( $false, $action, $response ) {
+	public function setPluginInfo( $response ) {
 
 		// Get plugin & GitHub release information
 		$this->initPluginData();
@@ -202,7 +201,7 @@ class BFIGitHubPluginUpdater {
 
 		// Gets the required version of WP if available
 		$matches = null;
-		preg_match( '/requires:\s([\d\.]+)/i', $this->githubAPIResult->body, $matches );
+		preg_match( '/requires:\s([\d]+)/i', $this->githubAPIResult->body, $matches );
 		if ( ! empty( $matches ) ) {
 			if ( is_array( $matches ) ) {
 				if ( count( $matches ) > 1 ) {
@@ -213,7 +212,7 @@ class BFIGitHubPluginUpdater {
 
 		// Gets the tested version of WP if available
 		$matches = null;
-		preg_match( '/tested:\s([\d\.]+)/i', $this->githubAPIResult->body, $matches );
+		preg_match( '/tested:\s([\d]+)/i', $this->githubAPIResult->body, $matches );
 		if ( ! empty( $matches ) ) {
 			if ( is_array( $matches ) ) {
 				if ( count( $matches ) > 1 ) {
@@ -226,7 +225,7 @@ class BFIGitHubPluginUpdater {
 	}
 
 	// Perform additional actions to successfully install the plugin
-	public function postInstall( $true, $hook_extra, $result ) {
+	public function postInstall( $result ) {
 
 		// Get plugin information
 		$this->initPluginData();
@@ -243,7 +242,7 @@ class BFIGitHubPluginUpdater {
 
 		// Re-activate plugin if needed
 		if ( $wasActivated ) {
-			$activate = activate_plugin( $this->slug );
+			activate_plugin( $this->slug );
 		}
 
 		return $result;
