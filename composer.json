@@ -1,14 +1,27 @@
 {
-    "name": "ecruhling/config_wp",
-    "description": "A plugin containing modules for configuring WordPress",
-    "type": "wordpress-plugin",
-    "require": {
-        "erusev/parsedown": "^1.7"
-    },
-    "authors": [
-        {
-            "name": "erik",
-            "email": "erik@resourceatlanta.com"
-        }
+  "name": "ecruhling/config_wp",
+  "description": "A plugin containing modules for configuring WordPress",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Erik Ruhling",
+      "email": "erik@resourceatlanta.com"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0",
+    "erusev/parsedown": "^1.7"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.5.1"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpcs --extensions=php --ignore=vendor/ -n -s ."
     ]
+  }
 }
