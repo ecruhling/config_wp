@@ -4,7 +4,7 @@
  * Plugin URI:  		https://resourceatlanta.com
  * Description:			A very opinionated, modular plugin for customizing & cleaning up the front- and back-end of WordPress.
  *                      Uses patterns established in Soil plugin by Roots. https://roots.io/plugins/soil/
- * Version:     		1.0.0
+ * Version:     		1.0.1.1
  * Author:				Resource Branding and Design
  * Author URI:  		https://resourceatlanta.com
  */
